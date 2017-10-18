@@ -52,7 +52,7 @@ import MarkdownView
 let mdView = MarkdownView()
 view.addSubview(mdView)
 mdView.frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height)
-
+// 加载本地 sample.md 文件
 let path = Bundle.main.path(forResource: "sample", ofType: "md")!
 let url = URL(fileURLWithPath: path)
 let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
