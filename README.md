@@ -59,6 +59,20 @@ let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
 mdView.load(markdown: markdown, enableImage: true)
 ```
 
+## Update 更新
+### 加载完成 回调方法
+由于 Markdown 加载通过 WKWebView 实现，加载需要耗时，所以使用代理方法传出 加载完成状态
+协议(别忘记指派哦)：
+```swift
+MarkdownViewDelegate
+```
+协议方法:
+```swift
+func MarkdownFinishedLoading() {
+     print("FinishedLoading")
+}
+```
+
 使用简单、效率高效、进程安全~~~如果你有更好的建议,希望不吝赐教!
 
 
