@@ -43,12 +43,12 @@ pod install
 
 ## Usage 使用方法
 ### 第一步 引入头文件
-```
+```swift
 import MarkdownView
 ```
 ### 第二步 简单调用
 纯代码版，XIB版类似，只是不需要用代码创建和布局
-```
+```swift
 let mdView = MarkdownView()
 view.addSubview(mdView)
 mdView.frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height)
