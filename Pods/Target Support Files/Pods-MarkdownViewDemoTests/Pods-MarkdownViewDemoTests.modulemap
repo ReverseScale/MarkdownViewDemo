@@ -1,0 +1,6 @@
+framework module Pods_MarkdownViewDemoTests {
+  umbrella header "Pods-MarkdownViewDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

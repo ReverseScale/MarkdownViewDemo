@@ -9,7 +9,10 @@
 import UIKit
 import MarkdownView
 
-class CodeOnlyViewController: UIViewController {
+class CodeOnlyViewController: UIViewController, MarkdownViewDelegate {
+    func MarkdownFinishedLoading() {
+        print("FinishedLoading")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +27,15 @@ class CodeOnlyViewController: UIViewController {
     
 
     func createMarkdownView() {
-        let mdView = MarkdownView()
-        view.addSubview(mdView)
-        mdView.frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height)
-        
         let path = Bundle.main.path(forResource: "sample", ofType: "md")!
         let url = URL(fileURLWithPath: path)
         let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
+        
+        let mdView = MarkdownView()
+        mdView.frame = view.bounds
+        mdView.delegate = self
+        view.addSubview(mdView)
+        
         mdView.load(markdown: markdown, enableImage: true)
     }
 
